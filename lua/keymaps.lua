@@ -51,4 +51,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- neotree toggle
+vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true })
+
+-- opens a new terminal
+vim.keymap.set('n', '<leader>tt', ':tabnew | terminal<CR>', { noremap = true, silent = true })
+
+-- goes to left-most tab
+vim.keymap.set('n', '<leader>g', ':tabfirst<CR><C-w><C-H>', { noremap = true, silent = true, desc = 'jumps to left-most buffer' })
 -- vim: ts=2 sts=2 sw=2 et
