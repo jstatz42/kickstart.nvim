@@ -90,5 +90,4 @@ require('lazy').setup({
   },
 })
 require('nvim-surround').setup()
-
 -- vim: ts=2 sts=2 sw=2 et
