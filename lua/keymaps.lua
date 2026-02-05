@@ -64,9 +64,12 @@ vim.keymap.set('n', '<leader>g', ':tabfirst<CR><C-w><C-H>', { noremap = true, si
 vim.keymap.set('n', '<leader>j', ':BufferPick<CR>', { noremap = true, silent = true, desc = 'jump-to-buffer mode' })
 
 -- closes buffer with :q when using barbar.nvim
-vim.cmd [[
-  cnoreabbrev <expr> q getcmdtype() == ':' && getcmdline() == 'q'
-    \ ? 'BufferClose'
-    \ : 'q'
-]]
+vim.keymap.set('n', '<leader>q', function()
+  if vim.fn.winnr '$' > 1 then
+    vim.cmd 'quit'
+  else
+    vim.cmd 'BufferClose'
+  end
+end, { desc = 'Close split or buffer' })
+
 -- vim: ts=2 sts=2 sw=2 et
